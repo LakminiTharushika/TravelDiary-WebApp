@@ -12,6 +12,6 @@ traveldiaryRouter.get("/", getAllTravelDiary);
 traveldiaryRouter.post("/add", addDiary);
 traveldiaryRouter.put("/update/:id", updateDiary );
 traveldiaryRouter.get("/:id", getById);
-traveldiaryRouter.delete("/id", deleteDiary);
+traveldiaryRouter.delete("/:id", deleteDiary);
 
 export default traveldiaryRouter;

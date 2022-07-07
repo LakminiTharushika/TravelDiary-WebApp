@@ -5,19 +5,19 @@ import TravelDiary from "../model/TravelDiary";
 // GET ALL TRAVEL DIARY
 export const getAllTravelDiary = async(request, response, next) => {
 
-    let traveldiary;
+    let traveldiaries;
     try{
-        traveldiary = await TravelDiary.find();
+        traveldiaries = await TravelDiaries.find();
 
     }catch (err) {
         return console.log(err)
     }
 
-    if(!traveldiary) {
+    if(!diary) {
         return response.status(404).json({message: "No TravelDiary Found!.."})
     }
 
-    return response.status(200).json({traveldiary})
+    return response.status(200).json({traveldiaries})
 };
 
 //*****************************************************************************************

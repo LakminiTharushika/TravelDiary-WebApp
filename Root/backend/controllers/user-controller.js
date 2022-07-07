@@ -44,6 +44,7 @@ export const getAllUser = async (request, response, next) =>{
          name,
          email,
          password: hashedPassword,
+         diary:[],
      });
 
      try{
