@@ -5,22 +5,23 @@ const Schema = mongoose.Schema;
 const TravelDiarySchema = new Schema ({
     title: {
         type: String,
-        required: true 
+        required: true, 
     },
 
     description: {
         type: String,
-        required: true 
+        required: true, 
     },
 
     image: {
         type: String,
-        required: true
+        required: true,
     },
 
     user: {
-        type: String,
-        required: true
+        type: mongoose.Types.ObjectId,
+        ref: "TravelDiary",
+        required: true,
     },
 
 });
