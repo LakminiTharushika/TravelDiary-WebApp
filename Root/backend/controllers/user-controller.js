@@ -22,7 +22,7 @@ export const getAllUser = async (request, response, next) =>{
 };
  
 //*****************************************************************************************
-// FOR SIGNUp
+// FOR SIGNUP
  export const signup = async (request, response, next) => {
      const {name, email,password} = request.body;
 
