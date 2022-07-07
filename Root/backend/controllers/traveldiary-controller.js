@@ -42,7 +42,6 @@ export const addDiary = async(request, response, next) => {
 
     }
     return response.status(201).json({diary})
-
 };
 
 //*****************************************************************************************
@@ -69,8 +68,6 @@ export const updateDiary = async(request, response, next) => {
         return response.status(500).json({message: "Unable to UPDATE the Diary!.."})
     }
     return response.status(200).json({diary})
-
-
 };
 
 //*****************************************************************************************
@@ -93,8 +90,28 @@ export const getById = async(request, response, next) => {
         return response.status(500).json({message: "No Diary Found!.."})
     }
     return response.status(200).json({diary})
+};
 
+//*****************************************************************************************
+// FOR DELETE A DIARY BY ID
 
+export const deleteDiary = async(request, response, next) => {
+
+    const id = request.params.id;
+
+    let diary;
+
+    try{
+        diary = await TravelDiary.findOneAndRemove(id);
+        
+    }catch(err) {
+        return console.log(err)
+
+    }
+    if(!diary) {
+        return response.status(500).json({message: "Unable to Delete!.."})
+    }
+    return response.status(200).json({message: "Successfully Deleted!."})
 };
 
 
