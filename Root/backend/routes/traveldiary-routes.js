@@ -1,8 +1,9 @@
 import express from 'express';
-import { getAllTravelDiary } from '../controllers/traveldiary-controller';
+import { addDiary, getAllTravelDiary } from '../controllers/traveldiary-controller';
 
 const traveldiaryRouter = express.Router();
 
 traveldiaryRouter.get("/", getAllTravelDiary);
+traveldiaryRouter.post("/add", addDiary);
 
 export default traveldiaryRouter;
