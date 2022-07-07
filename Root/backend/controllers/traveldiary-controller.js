@@ -73,5 +73,29 @@ export const updateDiary = async(request, response, next) => {
 
 };
 
+//*****************************************************************************************
+// FOR GET BY ID
+
+export const getById = async(request, response, next) => {
+
+    const id = request.params.id;
+
+    let diary;
+
+    try{
+        diary = await TravelDiary.findById(id);
+        
+    }catch(err) {
+        return console.log(err)
+
+    }
+    if(!diary) {
+        return response.status(500).json({message: "No Diary Found!.."})
+    }
+    return response.status(200).json({diary})
+
+
+};
+
 
 
