@@ -1,6 +1,8 @@
 import express from 'express';
 import { getAllTravelDiary } from '../controllers/traveldiary-controller';
 
-const router = express.Router();
+const traveldiaryRouter = express.Router();
 
-router.get("/", getAllTravelDiary);
+traveldiaryRouter.get("/", getAllTravelDiary);
+
+export default traveldiaryRouter;

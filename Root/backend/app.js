@@ -1,11 +1,14 @@
 import express, { response } from 'express';
 import mongoose from 'mongoose';
+import traveldiaryRouter from './routes/traveldiary-routes';
 import router from './routes/user-routes';
 
 const app = express ();
 
-app.use(express.json());
-app.use("/api/user",router);
+app.use (express.json());
+app.use ("/api/user",router);
+app.use ("/api/traveldiary",traveldiaryRouter);
+
 
 mongoose
 .connect ('mongodb+srv://admin:20220706MyWebApp@cluster0.jxak7.mongodb.net/TravelDiaryApp?retryWrites=true&w=majority')
