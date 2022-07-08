@@ -9,13 +9,13 @@ export const getAllTravelDiary = async(request, response, next) => {
 
     let traveldiaries;
     try{
-        traveldiaries = await TravelDiaries.find();
+        traveldiaries = await TravelDiary.find();
 
     }catch (err) {
         return console.log(err)
     }
 
-    if(!diary) {
+    if(!traveldiaries) {
         return response.status(404).json({message: "No TravelDiary Found!.."})
     }
 
@@ -105,9 +105,9 @@ export const getById = async(request, response, next) => {
 
     }
     if(!diary) {
-        return response.status(500).json({message: "No Diary Found!.."})
+        return response.status(404).json({message: "No Diary Found From This ID!.."})
     }
-    return response.status(200).json({diary})
+    return response.status(200).json({diary});
 };
 
 //*****************************************************************************************
@@ -120,8 +120,9 @@ export const deleteDiary = async(request, response, next) => {
     let diary;
 
     try{
-        diary = await TravelDiary.findOneAndRemove(id).populate('user');
-        await diary.user.traveldiaries.pull(diary);
+        diary = await TravelDiary.findByIdAndRemove(id).populate('user');
+        await diary.user.traveldiaries.pull(diary)
+        await diary.user.save();
         
     }catch(err) {
         console.log(err)
@@ -131,6 +132,26 @@ export const deleteDiary = async(request, response, next) => {
         return response.status(500).json({message: "Unable to Delete!.."})
     }
     return response.status(200).json({message: "Successfully Deleted!."})
+};
+
+//*****************************************************************************************
+// FOR GET BY USER ID
+
+export const getByUserId = async(request,response,next) =>{
+    const userId = request.params.id;
+
+    let userTravelDiaries;
+    try{
+        userTravelDiaries = await User.findById(userId).populate("diary");
+
+    }catch(err) {
+        return console.log(err)
+
+    }
+    if(!userTravelDiaries){
+        return response.status(404).json({message:"No Diary Found!.."})
+    }
+    return response.status(200).json({traveldiaries:userTravelDiaries})
 };
 
 

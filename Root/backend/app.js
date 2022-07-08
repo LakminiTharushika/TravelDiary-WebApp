@@ -1,4 +1,4 @@
-import express, { response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import traveldiaryRouter from './routes/traveldiary-routes';
 import router from './routes/user-routes';
@@ -12,8 +12,8 @@ app.use ("/api/traveldiary",traveldiaryRouter);
 
 mongoose
 .connect ('mongodb+srv://admin:20220706MyWebApp@cluster0.jxak7.mongodb.net/TravelDiaryApp?retryWrites=true&w=majority')
-.then(()=> app.listen (5000)) 
-.then (()=> console.log("Connected To Database And Listening To Localhost 5000!"))
+.then(()=> app.listen (3000)) 
+.then (()=> console.log("Connected To Database And Listening To Localhost 3000!"))
 .catch((err) => console.log(err));
 
 
