@@ -120,10 +120,11 @@ export const deleteDiary = async(request, response, next) => {
     let diary;
 
     try{
-        diary = await TravelDiary.findOneAndRemove(id);
+        diary = await TravelDiary.findOneAndRemove(id).populate('user');
+        await diary.user.traveldiaries.pull(diary);
         
     }catch(err) {
-        return console.log(err)
+        console.log(err)
 
     }
     if(!diary) {
