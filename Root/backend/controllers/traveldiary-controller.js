@@ -1,5 +1,7 @@
 import { request, response } from "express";
+import mongoose from "mongoose";
 import TravelDiary from "../model/TravelDiary";
+import User from "../model/User";
 
 //*****************************************************************************************
 // GET ALL TRAVEL DIARY
@@ -27,6 +29,17 @@ export const addDiary = async(request, response, next) => {
 
     const {title,description,image,user} = request.body;
 
+    let existingUser;
+    try{
+        existingUser = await User.findById(user);
+
+    }catch(err) {
+        return console.log(err)   
+    }
+    if(!existingUser){
+        return response.status(400).json({message: "Unable To Find User By This Id!.."})
+    }
+
     const diary = new TravelDiary({
         title,
         description,
@@ -35,13 +48,18 @@ export const addDiary = async(request, response, next) => {
     });
 
     try{
-        await diary.save();
+        const session = await mongoose.startSession();
+        session.startTransaction();
+        await diary.save({session});
+        existingUser.traveldiaries.push(diary);
+        await existingUser.save({session});
+        await session.commitTransaction();
 
     }catch(err){
-        return console.log (err);
-
+        console.log (err);
+        return response.status(500).json({message: err});
     }
-    return response.status(201).json({diary})
+    return response.status(200).json({diary})
 };
 
 //*****************************************************************************************
