@@ -120,10 +120,10 @@ export const deleteDiary = async(request, response, next) => {
     let diary;
 
     try{
-        diary = await TravelDiary.findByIdAndRemove(id).populate('user');
-        await diary.user.traveldiaries.pull(diary)
+        diary = await TravelDiary.findByIdAndRemove(id).populate("user");
+        await diary.user.traveldiaries.pull(diary);
         await diary.user.save();
-        
+
     }catch(err) {
         console.log(err)
 
@@ -142,7 +142,7 @@ export const getByUserId = async(request,response,next) =>{
 
     let userTravelDiaries;
     try{
-        userTravelDiaries = await User.findById(userId).populate("diary");
+        userTravelDiaries = await User.findById(userId).populate("traveldiaries");
 
     }catch(err) {
         return console.log(err)

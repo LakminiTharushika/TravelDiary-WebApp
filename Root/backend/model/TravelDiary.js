@@ -20,8 +20,10 @@ const TravelDiarySchema = new Schema ({
 
     user: {
         type: mongoose.Types.ObjectId,
-        ref: "TravelDiary",
+        ref:"User",
+        //ref: "TravelDiary",  (My mistake)
         required: true,
+         
     },
 
 });
