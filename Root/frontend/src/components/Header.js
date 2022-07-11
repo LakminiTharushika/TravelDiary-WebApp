@@ -18,8 +18,7 @@ const Header = () => {
     return (
         <AppBar
         position = "sticky"
-        sx={{
-            background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
+        sx={{ background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
             <Toolbar>
                 <Typography variant="h3"> TravelDiary App </Typography>
 
@@ -38,13 +37,13 @@ const Header = () => {
 
 
                 <Box display="flex" marginLeft="auto">
-                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
+                    {!isLoggedIn && <> <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     Login </Button>
 
-
-
                     <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
-                    Signup </Button>
+                    Signup </Button> </>}
+
+
 
                     {isLoggedIn && 
                     <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
