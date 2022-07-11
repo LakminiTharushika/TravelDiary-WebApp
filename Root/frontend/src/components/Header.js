@@ -6,6 +6,7 @@ import {
     Box,
     Tabs,
     Tab, 
+    Link,
     Button,} from '@mui/material';
 
 const Header = () => {
@@ -18,14 +19,14 @@ const Header = () => {
             <Toolbar>
                 <Typography variant="h3"> TravelDiary App </Typography>
 
-                <Box display="flex" >
+                <Box display="flex" marginLeft={'auto'} marginRight={'auto'}>
                     <Tabs textColor="inherit" 
                     value={value} 
                     onChange={(e,val) =>setValue(val)}>
 
-                        <Tab label = "ALL DIARIES"/>
-                        <Tab label = "MY DIARIES"/>
-                        <Tab label = "ADD DIARY"/>
+                        <Tab LinkComponent={Link} to="/traveldiaries" label = "ALL DIARIES"/>
+                        <Tab LinkComponent={Link} to="/myDiaries" label = "MY DIARIES"/>
+                        <Tab LinkComponent={Link} to="/traveldiaries/add" label = "ADD DIARY"/>
                     </Tabs>
                 </Box>
 
