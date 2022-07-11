@@ -5,9 +5,9 @@ import {
     Toolbar, 
     Box,
     Tabs,
-    Tab, 
-    Link,
+    Tab,
     Button,} from '@mui/material';
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [value, setValue] = useState ()
@@ -32,13 +32,13 @@ const Header = () => {
 
 
                 <Box display="flex" marginLeft="auto">
-                    <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
+                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     Login </Button>
 
-                    <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
+                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     Signup </Button>
 
-                    <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
+                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     LOGOUT </Button>
                 </Box>
 
