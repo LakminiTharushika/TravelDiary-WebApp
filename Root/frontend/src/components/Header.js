@@ -18,8 +18,11 @@ const Header = () => {
             <Toolbar>
                 <Typography variant="h3"> TravelDiary App </Typography>
 
-                <Box display="flex">
-                    <Tabs value={value} onChange={(e,val) =>setValue(val)}>
+                <Box display="flex" >
+                    <Tabs textColor="inherit" 
+                    value={value} 
+                    onChange={(e,val) =>setValue(val)}>
+
                         <Tab label = "ALL DIARIES"/>
                         <Tab label = "MY DIARIES"/>
                         <Tab label = "ADD DIARY"/>
