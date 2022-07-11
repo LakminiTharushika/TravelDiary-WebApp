@@ -20,7 +20,7 @@ const Header = () => {
         position = "sticky"
         sx={{ background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
             <Toolbar>
-                <Typography variant="h3"> TravelDiary App </Typography>
+                <Typography variant="h3"> TravelDiary WebApp</Typography>
 
                 {isLoggedIn && 
 
