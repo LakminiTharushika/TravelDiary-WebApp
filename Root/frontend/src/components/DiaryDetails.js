@@ -1,9 +1,9 @@
 import React from "react";
 
-const Login = () => {
+const DiaryDetails = () => {
     return (
-        <div> Login </div>
+        <div> DiaryDetails </div>
     )
 
 }
-export default Login;
+export default DiaryDetails;

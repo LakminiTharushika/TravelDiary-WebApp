@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Auth from "./components/Auth";
 import TravelDiaries from "./components/TravelDiaries";
 import UserTravelDiaries from "./components/UserTravelDiaries";

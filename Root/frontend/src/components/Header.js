@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     AppBar, 
     Typography, 
     Toolbar, 
-    Box, 
-    Button} from '@mui/material';
+    Box,
+    Tabs,
+    Tab, 
+    Button,} from '@mui/material';
 
 const Header = () => {
+    const [value, setValue] = useState ()
     return (
-        <AppBar sx={{background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
+        <AppBar
+        position = "sticky"
+        sx={{
+            background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
             <Toolbar>
-                <Typography variant="h4"> TravelDiaryApp </Typography>
+                <Typography variant="h3"> TravelDiary App </Typography>
+
+                <Box display="flex">
+                    <Tabs value={value} onChange={(e,val) =>setValue(val)}>
+                        <Tab label = "ALL DIARIES"/>
+                        <Tab label = "MY DIARIES"/>
+                        <Tab label = "ADD DIARY"/>
+                    </Tabs>
+                </Box>
+
+
                 <Box display="flex" marginLeft="auto">
                     <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     Login </Button>
+
                     <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
                     Signup </Button>
+
+                    <Button variant="contained" sx={{margin: 1, borderRadius:20}} color="warning"> 
+                    LOGOUT </Button>
                 </Box>
 
             </Toolbar>
