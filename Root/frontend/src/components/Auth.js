@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import {Box, Button, TextField, Typography,} from "@mui/material";
+import {  Box, Button, TextField, Typography,} from "@mui/material";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [inputs, setInputs] = useState({
         name: "", email:"", password:""
     });
 
     const [isSignup, setIsSignup] = useState(false);
+
     const handleChange = (e) => {
         setInputs((prevState)=> ({
             ...prevState,
@@ -32,9 +39,15 @@ const Auth = () => {
         e.preventDefault()
         console.log(inputs);
     if(isSignup){
-        sendRequest("signup").then(data=>console.log(data))
+        sendRequest("signup")
+        .then(() =>dispatch(authActions.login()))
+        .then(()=>navigate("/traveldiaries"))
+        .then(data=>console.log(data))
     }else{
-        sendRequest().then(data=>console.log(data))
+        sendRequest()
+        .then(() =>dispatch(authActions.login()))
+        .then(()=>navigate("/traveldiaries"))
+        .then(data=>console.log(data))
     }
     };
 
@@ -55,8 +68,10 @@ const Auth = () => {
                 borderRadius = {5}
                 bgcolor = "#FFFFF2"
                 >
-                    <Typography variant="h3" padding={3} textAlign="center"> Login and Signup </Typography>
-                    {isSignup ? "Signup" :"Login"}
+                    <Typography variant="h3" padding={3} textAlign="center"> 
+                    {isSignup ? "Signup" :"Login"} 
+                    </Typography>
+                  
 
                     {isSignup && 
                     <TextField 
