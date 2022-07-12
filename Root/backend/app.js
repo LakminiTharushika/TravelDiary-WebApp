@@ -2,12 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import traveldiaryRouter from './routes/traveldiary-routes';
 import router from './routes/user-routes';
+import cors from 'cors';
 
 const app = express ();
 
+app.use(cors());
+
 app.use (express.json());
 app.use ("/api/user",router);
-app.use ("/api/traveldiary",traveldiaryRouter);
+app.use ("api/traveldiary",traveldiaryRouter);
 
 
 mongoose
