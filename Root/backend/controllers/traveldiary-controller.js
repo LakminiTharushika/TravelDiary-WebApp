@@ -9,7 +9,7 @@ import User from "../model/User";
 export const getAllTravelDiary = async(req,res,next) =>{
     let traveldiaries;
     try{
-        traveldiaries = await TravelDiary.find();
+        traveldiaries = await TravelDiary.find().populate('user');
 
     }catch(err) {
         return console.log(err)
