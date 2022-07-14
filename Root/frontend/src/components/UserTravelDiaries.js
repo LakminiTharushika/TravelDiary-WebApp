@@ -14,9 +14,9 @@ const UserTravelDiaries = () => {
 
     useEffect(() => {
         sendRequest().then((data)=>setTravelDiaries(data.traveldiaries))
-     }, [])
+     }, [ ])
     console.log(traveldiaries);
-    return <div>UserTravelDiaries</div>
+    return <div> UserTravelDiaries </div>
 };
 
 export default UserTravelDiaries;
