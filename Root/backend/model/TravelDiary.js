@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const TravelDiarySchema = new Schema ({
+const traveldiarySchema = new Schema ({
     title: {
         type: String,
         required: true, 
@@ -28,4 +28,4 @@ const TravelDiarySchema = new Schema ({
 
 });
 
-export default mongoose.model("TravelDiary", TravelDiarySchema);
+export default mongoose.model("TravelDiary", traveldiarySchema);
