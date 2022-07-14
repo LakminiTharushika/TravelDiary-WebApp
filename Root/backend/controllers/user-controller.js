@@ -81,6 +81,6 @@ export const getAllUser = async (request, response, next) =>{
          .status(400)
          .json ({message: "Incorrect Password!!!"});
      }
-     return response.status(200).json ({message: "Login Successful!!.."})
+     return response.status(200).json ({message: "Login Successful!!..", user:existingUser});
 
- }
+ };
