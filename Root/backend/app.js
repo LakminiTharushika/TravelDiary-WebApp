@@ -10,7 +10,7 @@ app.use(cors());
 
 app.use (express.json());
 app.use ("/api/user",router);
-app.use ("api/traveldiary",traveldiaryRouter);
+app.use ("/api/traveldiaries",traveldiaryRouter);
 
 
 mongoose

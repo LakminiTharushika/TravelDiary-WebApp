@@ -8,9 +8,12 @@ import {
     Tab,
     Button,} from '@mui/material';
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../store";
 
 const Header = () => {
+
+    const dispatch = useDispatch();
 
     const isLoggedIn = useSelector(state=> state.isLoggedIn);
 
@@ -37,17 +40,32 @@ const Header = () => {
 
 
                 <Box display="flex" marginLeft="auto">
-                    {!isLoggedIn && <> <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:15}} color="warning"> 
+                    {!isLoggedIn && <> 
+                    <Button LinkComponent={Link} to="/auth" 
+                    variant="contained" 
+                    sx={{margin: 1, borderRadius:15}} 
+                    color="warning"> 
                     Login </Button>
 
-                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:15}} color="warning"> 
-                    Signup </Button> </>}
+                    <Button 
+                    LinkComponent={Link} to="/auth" 
+                    variant="contained" 
+                    sx={{margin: 1, borderRadius:15}} 
+                    color="warning"> 
+                    Signup 
+                    </Button> </>}
 
 
 
                     {isLoggedIn && 
-                    <Button LinkComponent={Link} to="/auth" variant="contained" sx={{margin: 1, borderRadius:15}} color="warning"> 
-                    LOGOUT </Button>}
+                    <Button
+                    onClick={()=>dispatch(authActions.logout())} 
+                    LinkComponent={Link} to="/auth" 
+                    variant="contained" 
+                    sx={{margin: 1, borderRadius:15}} 
+                    color="warning"> 
+                    LOGOUT 
+                    </Button>}
                 </Box>
 
             </Toolbar>

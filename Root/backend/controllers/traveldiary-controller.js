@@ -5,22 +5,21 @@ import User from "../model/User";
 
 //*****************************************************************************************
 // GET ALL TRAVEL DIARY
-export const getAllTravelDiary = async(request, response, next) => {
 
+export const getAllTravelDiary = async(req,res,next) =>{
     let traveldiaries;
     try{
         traveldiaries = await TravelDiary.find();
 
-    }catch (err) {
+    }catch(err) {
         return console.log(err)
     }
+    if(!traveldiaries){
+        return res.status(404).json({message: "No TravelDiary Found!.."})
 
-    if(!traveldiaries) {
-        return response.status(404).json({message: "No TravelDiary Found!.."})
     }
-
-    return response.status(200).json({traveldiaries})
-};
+    return res.status(200).json({traveldiaries})
+}
 
 //*****************************************************************************************
 // FOR ADD A DIARY
