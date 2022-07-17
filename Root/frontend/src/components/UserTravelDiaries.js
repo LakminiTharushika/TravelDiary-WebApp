@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import TravelDiary from "./TravelDiary";
 
 const UserTravelDiaries = () => {
     const [traveldiaries, setTravelDiaries] = useState();
@@ -13,10 +14,16 @@ const UserTravelDiaries = () => {
     }
 
     useEffect(() => {
-        sendRequest().then((data)=>setTravelDiaries(data.traveldiaries))
-     }, [ ])
+        sendRequest().then((data)=>setTravelDiaries(data.traveldiaries.traveldiaries));
+     }, []);
     console.log(traveldiaries);
-    return <div> UserTravelDiaries </div>
+    return <div> {traveldiaries && traveldiaries.map((diary,index) => 
+        (<TravelDiary 
+        title = {diary.title}
+        description = {diary.description}
+        imageURL = {diary.imageURL}
+        userName = {diary.user.name}/>
+    ))}</div>
 };
 
 export default UserTravelDiaries;

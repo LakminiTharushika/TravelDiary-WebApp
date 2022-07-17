@@ -18,12 +18,12 @@ const TravelDiaries = () => {
     return (
         <div>
             {traveldiaries && traveldiaries.map((diary,index) => 
-                <TravelDiary 
+                (<TravelDiary 
                 title = {diary.title}
                 description = {diary.description}
                 imageURL = {diary.imageURL}
                 userName = {diary.user.name}/>
-            )}
+            ))}
         </div>
     )
 
