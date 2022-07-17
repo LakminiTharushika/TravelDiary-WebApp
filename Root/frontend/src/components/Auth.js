@@ -10,7 +10,9 @@ const Auth = () => {
     const dispatch = useDispatch();
 
     const [inputs, setInputs] = useState({
-        name: "", email:"", password:""
+        name: "", 
+        email:"", 
+        password:"",
     });
 
     const [isSignup, setIsSignup] = useState(false);
