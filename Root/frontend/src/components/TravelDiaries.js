@@ -21,7 +21,7 @@ const TravelDiaries = () => {
                 (<TravelDiary 
                 title = {diary.title}
                 description = {diary.description}
-                imageURL = {diary.imageURL}
+                imageURL = {diary.image}
                 userName = {diary.user.name}/>
             ))}
         </div>

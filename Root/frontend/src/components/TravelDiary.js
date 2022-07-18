@@ -15,17 +15,17 @@ const TravelDiary = ({title,description,imageURL,userName}) => {
           }
           
           title={title}
-          subheader="September 14, 2016"
+          subheader="July 18, 2022"
         />
         <CardMedia
           component="img"
           height="194"
           image={imageURL}
-          alt="Paella dish"
+          alt="My Travel"
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            {description}
+          <Typography variant="body2" color="text.secondary"> 
+          <b>{userName}</b> {":"} {description}
           </Typography>
         </CardContent>
       

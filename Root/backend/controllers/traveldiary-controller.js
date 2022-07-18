@@ -150,7 +150,7 @@ export const getByUserId = async(request,response,next) =>{
     if(!userTravelDiaries){
         return response.status(404).json({message:"No Diary Found!.."})
     }
-    return response.status(200).json({traveldiaries:userTravelDiaries})
+    return response.status(200).json({user:userTravelDiaries})
 };
 
 
