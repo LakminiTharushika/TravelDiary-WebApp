@@ -1,8 +1,16 @@
 import React from "react";
 import {Avatar, Box, CardContent, CardMedia, Typography, Card, CardHeader, IconButton } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from "react-router-dom";
 
 
-const TravelDiary = ({title,description,imageURL,userName,isUser}) => {
+const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
+  const navigate = useNavigate();
+
+  const handleEdit = (e) =>{
+    navigate(`/myDiaries/${id}`)
+  }
   console.log(title, isUser);
     return (
         <div> 
@@ -12,8 +20,13 @@ const TravelDiary = ({title,description,imageURL,userName,isUser}) => {
 
           {isUser && (
             <Box display="flex">
-              <IconButton> </IconButton>
-              <IconButton> </IconButton>
+              <IconButton onClick={handleEdit} sx={{marginLeft:"auto"}}> 
+                <EditIcon/> 
+              </IconButton>
+
+              <IconButton > 
+                <DeleteIcon/> 
+              </IconButton>
               
 
             </Box>
