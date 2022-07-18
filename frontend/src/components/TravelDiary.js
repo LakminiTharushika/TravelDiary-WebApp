@@ -1,11 +1,24 @@
 import React from "react";
-import {Avatar, CardContent, CardMedia, Typography, Card, CardHeader } from "@mui/material";
+import {Avatar, Box, CardContent, CardMedia, Typography, Card, CardHeader, IconButton } from "@mui/material";
 
-const TravelDiary = ({title,description,imageURL,userName}) => {
+
+const TravelDiary = ({title,description,imageURL,userName,isUser}) => {
+  console.log(title, isUser);
     return (
-        <div> <Card sx={{ width:"40%", margin:'auto',mt:2, padding:2, boxShadow:"10px 10px 20px #ccc", ":hover:" :{
+        <div> 
+          <Card sx={{ width:"40%", margin:'auto',mt:2, padding:2, boxShadow:"10px 10px 20px #ccc", ":hover:" :{
             boxShadow:"15px 15px 30px #ccc"
         } }}>
+
+          {isUser && (
+            <Box display="flex">
+              <IconButton> </IconButton>
+              <IconButton> </IconButton>
+              
+
+            </Box>
+          )}
+          
         
         <CardHeader
           avatar={
@@ -25,7 +38,7 @@ const TravelDiary = ({title,description,imageURL,userName}) => {
         />
         <CardContent>
           <Typography variant="body2" color="text.secondary"> 
-          <b>{userName}</b> {":"} {description}
+          <b>{userName}</b> {": "} {description}
           </Typography>
         </CardContent>
       

@@ -73,7 +73,7 @@ const AddDiary = () => {
                         <InputLabel sx={labelStyles}> ImageURL </InputLabel>
                         <TextField name={"imageURL"} onChange={handleChange} value={inputs.imageURL} margin="auto" variant="outlined" />
 
-                        <Button sx={{mt:5, borderRadius:14}} variant="contained" color="warning" fontSize="25px"> 
+                        <Button type="submit" sx={{mt:5, borderRadius:14}} variant="contained" color="warning" fontSize="25px"> 
                             submit Your Memo
                         </Button>
 
