@@ -3,6 +3,7 @@ import axios from "axios";
 import TravelDiary from "./TravelDiary";
 
 
+
 const TravelDiaries = () => {
     const [traveldiaries, setTravelDiaries] = useState();
 
@@ -17,8 +18,9 @@ const TravelDiaries = () => {
      console.log(traveldiaries);
     return (
         <div>
-            {traveldiaries && traveldiaries.map((diary,index) => 
-                (<TravelDiary 
+            {traveldiaries && traveldiaries.map((diary,index) => (
+            <TravelDiary
+                isUser={localStorage.getItem("userId")===diary.user._id}
                 title = {diary.title}
                 description = {diary.description}
                 imageURL = {diary.image}
