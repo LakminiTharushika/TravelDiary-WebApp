@@ -15,8 +15,8 @@ app.use ("/api/traveldiaries",traveldiaryRouter);
 
 mongoose
 .connect ('mongodb+srv://admin:20220706MyWebApp@cluster0.jxak7.mongodb.net/TravelDiaryApp?retryWrites=true&w=majority')
-.then(()=> app.listen (3000)) 
-.then (()=> console.log("Connected To Database And Listening To Localhost 3000!"))
+.then(()=> app.listen (4000)) 
+.then (()=> console.log("Connected To Database And Listening To Localhost 4000!"))
 .catch((err) => console.log(err));
 
 

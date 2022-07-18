@@ -3,7 +3,7 @@ import axios from "axios";
 import TravelDiary from "./TravelDiary";
 
 const UserTravelDiaries = () => {
-    const [traveldiaries, setTravelDiaries] = useState();
+    const [user, setUser] = useState();
 
     const id = localStorage.getItem("userId");
 
@@ -14,16 +14,20 @@ const UserTravelDiaries = () => {
     }
 
     useEffect(() => {
-        sendRequest().then((data)=>setTravelDiaries(data.traveldiaries.traveldiaries));
+        sendRequest().then((data)=>setUser(data.user));
      }, []);
-    console.log(traveldiaries);
-    return <div> {traveldiaries && traveldiaries.map((diary,index) => 
+    console.log(user);
+    return <div> 
+        {" "}
+        {user.traveldiaries && user.traveldiaries.map((diary,index) => 
         (<TravelDiary 
-        title = {diary.title}
-        description = {diary.description}
-        imageURL = {diary.imageURL}
-        userName = {diary.user.name}/>
-    ))}</div>
+            key={index}
+            title = {diary.title}
+            description = {diary.description}
+            imageURL = {diary.image}
+            userName = {user.name}/>
+    ))}
+    </div>
 };
 
 export default UserTravelDiaries;
