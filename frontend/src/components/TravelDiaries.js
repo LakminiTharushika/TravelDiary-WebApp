@@ -20,7 +20,8 @@ const TravelDiaries = () => {
         <div>
             {traveldiaries && traveldiaries.map((diary,index) => (
             <TravelDiary
-                
+                id={diary._id}
+                isUser={localStorage.getItem("userId") === diary.user._id}
                 title = {diary.title}
                 description = {diary.description}
                 imageURL = {diary.image}
