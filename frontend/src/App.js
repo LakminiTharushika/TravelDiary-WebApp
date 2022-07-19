@@ -32,13 +32,15 @@ function App() {
           backgroundSize: "cover",
           overflow: "hidden",
           width: "100%",
+          margin: "0 auto",
+          padding: "0 auto"
         }}
       >
         <header style={{position: "fixed", width: "-webkit-fill-available"}}>
           <Header/>
         </header>
 
-        <main style={{marginTop: "100px"}}>
+        <main style={{marginTop: "100px", height: "full"}}>
           <Routes>
             {!isLoggedIn ? (
               <Route path="/auth" element={<Auth />} />
