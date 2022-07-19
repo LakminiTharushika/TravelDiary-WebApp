@@ -41,7 +41,7 @@ function App() {
           <Header/>
         </header>
 
-        <main style={{marginTop: "100px", height: "1080px"}}>
+        <main style={{marginTop: "100px", marginBottom: "60px", height: "auto", minHeight: "1080px"}}>
           <Routes>
             {!isLoggedIn ? (
               <Route path="/auth" element={<Auth />} />
