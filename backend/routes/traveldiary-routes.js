@@ -5,7 +5,7 @@ import {
     getAllTravelDiary,
     getById,
     getByUserId,
-    updateDiary } from '../controllers/traveldiary-controller';
+    updateDiary } from '../controllers/traveldiary-controller.js';
 
 const traveldiaryRouter = express.Router();
 

@@ -14,7 +14,7 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
   };
 
   const deleteRequest = async()=>{
-    const res = await axios.delete(`http://localhost:3000/api/traveldiaries/${id}`).catch(err=>console.log(err));
+    const res = await axios.delete(`https://funny-pocket-ant.cyclic.app/api/traveldiaries/${id}`).catch(err=>console.log(err));
     const data = await res.data;
     return data
   }

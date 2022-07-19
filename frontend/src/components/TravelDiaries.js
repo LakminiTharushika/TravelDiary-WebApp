@@ -8,7 +8,7 @@ const TravelDiaries = () => {
     const [traveldiaries, setTravelDiaries] = useState();
 
     const sendRequest = async ()=>{
-        const res = await axios.get("http://localhost:3000/api/traveldiaries").catch(err=>console.log(err));
+        const res = await axios.get("https://funny-pocket-ant.cyclic.app/api/traveldiaries").catch(err=>console.log(err));
         const data = await res.data;
         return data;
     }

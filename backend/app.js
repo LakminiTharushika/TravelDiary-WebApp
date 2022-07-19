@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import traveldiaryRouter from './routes/traveldiary-routes';
-import router from './routes/user-routes';
+import traveldiaryRouter from './routes/traveldiary-routes.js';
+import router from './routes/user-routes.js';
 import cors from 'cors';
 
 const app = express ();
@@ -15,7 +15,7 @@ app.use ("/api/traveldiaries",traveldiaryRouter);
 
 mongoose
 .connect ('mongodb+srv://admin:20220706MyWebApp@cluster0.jxak7.mongodb.net/TravelDiaryApp?retryWrites=true&w=majority')
-.then(()=> app.listen (3001)) 
+.then(()=> app.listen (3005)) 
 .then (()=> console.log("Connected To Database And Listening To Localhost 5000!"))
 .catch((err) => console.log(err));
 
