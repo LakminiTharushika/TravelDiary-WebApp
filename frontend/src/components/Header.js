@@ -20,14 +20,14 @@ const Header = () => {
     const [value, setValue] = useState ()
     return (
 
-        <div style={{backgroundImage:`url("http://www.hdwallpaperspulse.com/wp-content/uploads/2016/09/02/great-hd-world-wallpaper.jpg")`}}>
+        <div style={{width: '100%'}}>
         
             <AppBar
             position = "sticky"
             sx={{ background: "linear-gradient( 135deg, #1904E5 10%, #BC78EC 100%);"}}>
 
                 <Toolbar >
-                    <Typography variant="h3"> TravelDiary WebApp</Typography>
+                    <Typography variant="h4" fontFamily = "Josefin Sans"> TravelDiary WebApp</Typography>
 
                     {isLoggedIn && 
 

@@ -11,41 +11,50 @@ import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "./store";
 
 function App() {
-
   const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector(state=> state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
   console.log(isLoggedIn);
 
-  useEffect(() => { 
-    if(localStorage.getItem("userId")){
+  useEffect(() => {
+    if (localStorage.getItem("userId")) {
       dispatch(authActions.login());
-
     }
-  }, [dispatch ]);
-  
-  return <React.Fragment>
-    <header>
-      <Header/>
-    </header>
+  }, [dispatch]);
 
-    <main>
-      
-      <Routes>
-      {!isLoggedIn ?
-        <Route path = "/auth" element={<Auth/>} /> :
-        <> 
-        <Route path = "/traveldiaries" element={<TravelDiaries/>} />
-        <Route path = "/myDiaries" element={<UserTravelDiaries/>} />
-        <Route path = "/myDiaries/:id" element={<DiaryDetails/>} />
-        <Route path = "/traveldiaries/add" element={<AddDiary/>} /> </>}
+  return (
+    <React.Fragment>
+      <div
+        style={{
+          backgroundImage: `url("http://www.hdwallpaperspulse.com/wp-content/uploads/2016/09/02/great-hd-world-wallpaper.jpg")`,
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          backgroundSize: "cover",
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
+        <header style={{position: "fixed", width: "-webkit-fill-available"}}>
+          <Header/>
+        </header>
 
-      </Routes> 
-    </main>
-
-
-  </React.Fragment>;
-
+        <main style={{marginTop: "100px"}}>
+          <Routes>
+            {!isLoggedIn ? (
+              <Route path="/auth" element={<Auth />} />
+            ) : (
+              <>
+                <Route path="/traveldiaries" element={<TravelDiaries />} />
+                <Route path="/myDiaries" element={<UserTravelDiaries />} />
+                <Route path="/myDiaries/:id" element={<DiaryDetails />} />
+                <Route path="/traveldiaries/add" element={<AddDiary />} />{" "}
+              </>
+            )}
+          </Routes>
+        </main>
+      </div>
+    </React.Fragment>
+  );
 }
 
 export default App;
