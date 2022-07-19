@@ -26,7 +26,7 @@ const Auth = () => {
 
     const sendRequest = async (type="login")=>{
         const res = await 
-        axios.post(`http://localhost:3000/api/user/${type}`, {
+        axios.post(`https://travel-diary-frontend.vercel.app:3000/api/user/${type}`, {
             name: inputs.name,
             email: inputs.email,
             password: inputs.password

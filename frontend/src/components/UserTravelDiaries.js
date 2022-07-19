@@ -9,7 +9,7 @@ const UserTravelDiaries = () => {
     const id = localStorage.getItem("userId");
 
     const sendRequest = async()=>{
-        const res = await axios.get(`http://localhost:3000/api/traveldiaries/user/${id}` ).catch(err=>console.log(err));
+        const res = await axios.get(`https://travel-diary-frontend.vercel.app/api/traveldiaries/user/${id}` ).catch(err=>console.log(err));
         const data = await res.data;
         return data
     }

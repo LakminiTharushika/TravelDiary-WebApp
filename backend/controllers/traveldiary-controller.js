@@ -1,7 +1,7 @@
 import { request, response } from "express";
 import mongoose from "mongoose";
-import TravelDiary from "../model/TravelDiary";
-import User from "../model/User";
+import TravelDiary from "../model/TravelDiary.js";
+import User from "../model/User.js";
 
 //*****************************************************************************************
 // GET ALL TRAVEL DIARY

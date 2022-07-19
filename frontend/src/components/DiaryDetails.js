@@ -26,7 +26,7 @@ const DiaryDetails = () => {
 
 
     const fetchDetails = async() =>{
-        const res = await axios.get(`http://localhost:3000/api/traveldiaries/${id}`).catch(err=>console.log(err));
+        const res = await axios.get(`https://travel-diary-frontend.vercel.app/api/traveldiaries/${id}`).catch(err=>console.log(err));
         const data = await res.data;
         return data;
     };
