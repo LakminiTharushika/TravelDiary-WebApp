@@ -51,7 +51,7 @@ const AddDiary = () => {
         <div> 
             <form onSubmit={handleSubmit}> 
                 <Box 
-                    border={5} 
+                    border={3} 
                     borderColor="blue" 
                     borderRadius={20} 
                     boxShadow="15px 15px 30px #ccc" 
@@ -60,7 +60,7 @@ const AddDiary = () => {
                     marginTop = {5}
                     display="flex"
                     flexDirection={"column"}
-                    width={"80%"}
+                    width={"60%"}
                     justifyContent = {'center'}
                     bgcolor = "#FFFFF2">
 

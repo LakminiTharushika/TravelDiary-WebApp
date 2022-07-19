@@ -58,7 +58,7 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
         />
         <CardMedia
           component="img"
-          height="400"
+          height="450"
           image={imageURL}
           alt="My Travel"
         />
