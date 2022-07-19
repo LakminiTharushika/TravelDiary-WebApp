@@ -46,19 +46,19 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
           )}
           
         
-        <CardHeader
+        <CardHeader 
           avatar={
             <Avatar sx={{ bgcolor:"red" }} aria-label="recipe">
               {userName ? userName.charAt(0) : ""}
             </Avatar>
           }
-          
+
           title={title}
-          subheader="July 18, 2022"
+          subheader="Make Your memories...all over the World!"
         />
         <CardMedia
           component="img"
-          height="194"
+          height="400"
           image={imageURL}
           alt="My Travel"
         />
