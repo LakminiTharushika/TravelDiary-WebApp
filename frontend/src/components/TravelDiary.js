@@ -3,6 +3,7 @@ import {Avatar, Box, CardContent, CardMedia, Typography, Card, CardHeader, IconB
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
@@ -10,6 +11,18 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
 
   const handleEdit = (e) =>{
     navigate(`/myDiaries/${id}`)
+  };
+
+  const deleteRequest = async()=>{
+    const res = await axios.delete(`http://localhost:3000/api/traveldiaries/${id}`).catch(err=>console.log(err));
+    const data = await res.data;
+    return data
+  }
+  const handleDelete = () =>{
+    deleteRequest()
+    .then(()=>navigate("/"))
+    .then(()=>navigate("/traveldiaries"));
+
   }
   console.log(title, isUser);
     return (
@@ -21,11 +34,11 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
           {isUser && (
             <Box display="flex">
               <IconButton onClick={handleEdit} sx={{marginLeft:"auto"}}> 
-                <EditIcon/> 
+                <EditIcon color="info" /> 
               </IconButton>
 
-              <IconButton > 
-                <DeleteIcon/> 
+              <IconButton  onClick={handleDelete} > 
+                <DeleteIcon color="error" />
               </IconButton>
               
 
@@ -36,7 +49,7 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor:"red" }} aria-label="recipe">
-              {userName}
+              {userName ? userName.charAt(0) : ""}
             </Avatar>
           }
           
@@ -49,7 +62,10 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
           image={imageURL}
           alt="My Travel"
         />
+
         <CardContent>
+        <hr />
+        <br />
           <Typography variant="body2" color="text.secondary"> 
           <b>{userName}</b> {": "} {description}
           </Typography>

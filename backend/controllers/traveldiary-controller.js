@@ -74,7 +74,9 @@ export const updateDiary = async(request, response, next) => {
     try{
         diary = await TravelDiary.findByIdAndUpdate(diaryId,{
             title,
-            description
+            description,
+          
+            
         })
         
     }catch(err) {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
+import { useNavigate} from "react-router-dom";
 import axios from "axios";
 
 
@@ -7,6 +8,8 @@ import axios from "axios";
 const labelStyles = {marginBottom:1, marginTop:2, fontSize:"20px", fontWeight:"bold"}
 
 const AddDiary = () => {
+
+    const navigate = useNavigate()
 
     const [inputs, setInputs] = useState({
         title: "", 
@@ -38,7 +41,9 @@ const AddDiary = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(inputs);
-        sendRequest().then(data=>console.log(data));
+        sendRequest()
+        .then(data=>console.log(data))
+        .then(()=>navigate)("/traveldiaries");
     };
 
 

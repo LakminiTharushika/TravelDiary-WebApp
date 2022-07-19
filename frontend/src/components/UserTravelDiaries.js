@@ -25,6 +25,7 @@ const UserTravelDiaries = () => {
             {user && user.traveldiaries && 
                user.traveldiaries.map((diary,index) =>(
                     <TravelDiary 
+                        id={diary._id}
                         key={index}
                         isUser={true}
                         title = {diary.title}

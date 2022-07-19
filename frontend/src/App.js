@@ -19,13 +19,17 @@ function App() {
     </header>
 
     <main>
+      
       <Routes>
-        <Route path = "/auth" element={<Auth/>} />
+      {!isLoggedIn ?
+        <Route path = "/auth" element={<Auth/>} /> :
+        <> 
         <Route path = "/traveldiaries" element={<TravelDiaries/>} />
         <Route path = "/myDiaries" element={<UserTravelDiaries/>} />
         <Route path = "/myDiaries/:id" element={<DiaryDetails/>} />
-        <Route path = "/traveldiaries/add" element={<AddDiary/>} />
-      </Routes>
+        <Route path = "/traveldiaries/add" element={<AddDiary/>} /> </>}
+        
+      </Routes> 
     </main>
 
 
