@@ -24,7 +24,7 @@ const AddDiary = () => {
         }));
     };
 
-    
+
     const sendRequest = () => {
         const res = axios.post("https://funny-pocket-ant.cyclic.app/api/traveldiaries/add",{
             title: inputs.title,
