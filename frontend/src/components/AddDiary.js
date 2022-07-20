@@ -25,15 +25,15 @@ const AddDiary = () => {
     };
 
     
-    const sendRequest = async() =>{
-        const res = await axios.post("https://travel-diary-frontend.vercel.app/api/traveldiaries/add",{
+    const sendRequest = () => {
+        const res = axios.post("https://funny-pocket-ant.cyclic.app/api/traveldiaries/add",{
             title: inputs.title,
             description: inputs.description,
             image: inputs.imageURL,
             user: localStorage.getItem("userId")
         }).catch(err=> console.log(err));
 
-        const data = await res.data;
+        const data = res.data;
         return data
 
     };
@@ -41,9 +41,8 @@ const AddDiary = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(inputs);
-        sendRequest()
-        .then(data=>console.log(data))
-        .then(()=>navigate)("/traveldiaries");
+        sendRequest();
+        (()=>navigate)("/traveldiaries");
     };
 
 
