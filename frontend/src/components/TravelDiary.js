@@ -20,8 +20,8 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
   }
   const handleDelete = () =>{
     deleteRequest()
-    .then(()=>navigate("/"))
-    .then(()=>navigate("/traveldiaries"));
+    // .then(()=>navigate("/traveldiaries"));
+    .then(window.location.reload());
 
   }
   console.log(title, isUser);
