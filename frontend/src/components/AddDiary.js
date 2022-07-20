@@ -26,7 +26,7 @@ const AddDiary = () => {
 
     
     const sendRequest = async() =>{
-        const res = await axios.post("https://travel-diary-frontend.vercel.app/api/traveldiaries/add",{
+        const res = await axios.post("https://funny-pocket-ant.cyclic.app/api/traveldiaries/add",{
             title: inputs.title,
             description: inputs.description,
             image: inputs.imageURL,
