@@ -46,7 +46,7 @@ const DiaryDetails = () => {
   }, [id]);
   const sendRequest = () => {
     const res = axios
-      .put(`https://funny-pocket-ant.cyclic.app/traveldiaries/update/${id}`, {
+      .put(`https://funny-pocket-ant.cyclic.app/api/traveldiaries/update/${id}`, {
         title: inputs.title,
         description: inputs.description,
       })
@@ -55,14 +55,12 @@ const DiaryDetails = () => {
     const data = res.data;
     return data;
   };
-  console.log(diary);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest()
-      .then((data) => console.log(data));
-      alert("Diary Updated Successfully!");
+    sendRequest();
+    alert("Diary Updated Successfully!");
     navigate("/myDiaries");
   };
 
