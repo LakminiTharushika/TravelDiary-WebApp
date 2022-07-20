@@ -42,7 +42,7 @@ const DiaryDetails = () => {
 
         },[id]);
         const sendRequest = async() =>{
-            const res = await axios.put(`http://localhost:3000/api/traveldiaries/update/${id}`,{
+            const res = await axios.put(`https://funny-pocket-ant.cyclic.app/traveldiaries/update/${id}`,{
                 title: inputs.title,
                 description: inputs.description,
               
