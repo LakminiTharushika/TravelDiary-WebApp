@@ -42,7 +42,8 @@ const AddDiary = () => {
         e.preventDefault();
         console.log(inputs);
         sendRequest();
-        (()=>navigate)("/traveldiaries");
+        alert("Diary Added Successfully!");
+        navigate("/traveldiaries");
     };
 
 

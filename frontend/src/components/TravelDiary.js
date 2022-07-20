@@ -21,6 +21,7 @@ const TravelDiary = ({title,description,imageURL,userName,isUser,id}) => {
   const handleDelete = () =>{
     deleteRequest()
     // .then(()=>navigate("/traveldiaries"));
+    .then(alert("Diary Deleted Successfully!"))
     .then(window.location.reload());
 
   }
