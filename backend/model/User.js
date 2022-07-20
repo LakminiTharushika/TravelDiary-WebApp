@@ -18,7 +18,9 @@ const userSchema = new Schema ({
         type: String,
         required: true,
         minlength: 6
-    }
+    },
+
+    traveldiaries: [{type:mongoose.Types.ObjectId,ref:"TravelDiary",required:true}]
 });
 
 export default mongoose.model ("User", userSchema);

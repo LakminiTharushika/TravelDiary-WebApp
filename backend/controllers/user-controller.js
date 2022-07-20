@@ -1,5 +1,5 @@
 import { request, response } from "express";
-import User from "../model/User";
+import User from "../model/User.js";
 import bcrypt from 'bcryptjs';
 
 //*****************************************************************************************
@@ -22,7 +22,7 @@ export const getAllUser = async (request, response, next) =>{
 };
  
 //*****************************************************************************************
-// FOR SIGNUp
+// FOR SIGNUP
  export const signup = async (request, response, next) => {
      const {name, email,password} = request.body;
 
@@ -44,6 +44,7 @@ export const getAllUser = async (request, response, next) =>{
          name,
          email,
          password: hashedPassword,
+         traveldiaries:[],
      });
 
      try{
@@ -80,6 +81,6 @@ export const getAllUser = async (request, response, next) =>{
          .status(400)
          .json ({message: "Incorrect Password!!!"});
      }
-     return response.status(200).json ({message: "Login Successful!!.."})
+     return response.status(200).json ({message: "Login Successful!!..", user:existingUser});
 
- }
+ };
